@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% load static %}
+
+  <head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+
+  <div class="container centered">
+    <img src="{% static 'img/Healing_Logo_Raz.png' %}" width="1600" height="1600" alt="Healing Logo Raz">
+</div>
+
+  <div class="container">
+    <table>
+      <tr>
+        <td rowspan="2">
+          <a href="{% url 'pages:price_list' %}">
+            <img src="{% static 'img/Price_List.png' %}" width="400" height="800" alt="Price List">
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'pages:about_me' %}">
+            <img src="{% static 'img/About_Me.png' %}" width="400" height="400" alt="About Me">
+          <a>
+        </td>
+        <td rowspan="2">
+          <a href="{% url 'pages:questions' %}">
+            <img src="{% static 'img/Questions.png' %}" width="400" height="800" alt="Questions">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="{% url 'comments:list_comment' %}">
+            <img src="{% static 'img/Comments.png' %}" width="400" height="400" alt="Comments">
+          </a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container">
+    <table>
+      <tr>
+        <td>
+          <img src="{% static 'img/Healing_Room.png' %}" width="400" height="400" alt="Healing Room">
+        </td>
+        <td rowspan="2">
+          <a href="{% url 'pages:gift_card' %}">
+            <img src="{% static 'img/Gift_Card.png' %}" width="400" height="800" alt="Gift Card">
+          </a>
+        </td>
+        <td>
+          <img src="{% static 'img/Means.png' %}" width="400" height="400" alt="Means">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="{% static 'img/Healing_S.png' %}" width="400" height="400" alt="Healing S">
+        </td>
+        <td>
+          <img src="{% static 'img/Healing_WM.png' %}" width="400" height="400" alt="Healing WM">
+        </td>
+      </tr>
+    </table>
+  </div>
+
+{% endblock %}

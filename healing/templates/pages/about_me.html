@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% load static %}
+
+  <head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+
+  <div class="container">
+    <div class="image">
+      <img src="{% static 'img/AM_1.jpg' %}" width="480,5" height="640" alt="About Me">
+    </div>
+    <div class="text">
+      <h1>
+        <p>Меня зовут Павел Скворцов.</p>
+        <p>Я занимаюсь массажем уже 2 года.</p>
+        <p>Работаю с техниками спортивного массажа и релакс-массажа.</p>
+        <p>Восстанавливаю мышцы после тренировочного процесса, подготавливаю к сезону соревнований.</p>
+        <p>Снимаю напряжение после тяжелой рабочей недели.</p>
+      </h1>
+    </div>
+  </div>
+
+<style>
+.container {
+    display: flex;
+    align-items: center; /* Выравнивание элементов по вертикали */
+}
+
+.image {
+    margin-right: 20px; /* Отступ между изображением и текстом */
+}
+
+.text {
+    flex-grow: 1; /* Текст занимает оставшееся пространство */
+}
+</style>
+
+{% endblock %}

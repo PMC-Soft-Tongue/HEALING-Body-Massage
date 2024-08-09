@@ -1,0 +1,72 @@
+{% load static %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/button.css' %}">
+</head>
+
+<header>
+  {% load static %}
+  <nav class="navbar shadow-sm">
+    <div class="container">
+      <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="navbar-brand" href="{% url 'pages:homepage' %}">
+              <img src="{% static 'img/Healing_Logo.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navbar-brand" href="{% url 'pages:homepage' %}">
+              Healing Body Massage
+            </a>
+          </li>
+        </ul>
+      {% with request.resolver_match.view_name as view_name %}
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.instagram.com/healing.pnz?igsh=MWtpN24xa210Y2FoaA%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="+7 999 610 5198" target="_blank">8-999-610-51-98</a>
+          </li>
+        </ul>
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link {% if view_name == 'pages:homepage' %} active {% endif %}"
+              href="{% url 'pages:homepage' %}">
+              Главная
+            </a>
+          </li>
+          {% if user.is_authenticated %}
+            <span class="navbar-text">Пользователь: <b>{{ user.username }}</b></span>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <div class="btn-group">
+                  <button type="submit">Выйти</button>
+                </div>
+              </form>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if view_name == 'logout' %} active {% endif %}"
+                href="{% url 'password_change' %}">
+                Сменить пароль
+              </a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link {% if view_name == 'login' %} active {% endif %}"
+                href="{% url 'login' %}">
+                Войти
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if view_name == 'registration' %} active {% endif %}"
+                href="{% url 'registration' %}">
+                Регистрация
+              </a>
+            </li>
+          {% endif %}
+        </ul>
+      {% endwith %}
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,24 @@
+<style>
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  a img {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  a:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Это заставит контейнер занимать всю высоту видимой части страницы */
+    width: 100%;
+}
+
+</style>

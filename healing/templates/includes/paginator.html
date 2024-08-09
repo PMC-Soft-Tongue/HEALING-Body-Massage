@@ -1,0 +1,43 @@
+{% block content %}
+
+  {% if page_obj.has_other_pages %}
+    <nav class="my-5">
+      <ul class="pagination">
+        {% if page_obj.has_previous and page_obj.number > 3 %}
+          <li class="page_item">
+            <a class="page-link" href="?page=1"> first </a>
+          </li>
+          <li class="page_item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}"> previous </a>
+          </li>
+        {% endif %}
+        {% for i in page_obj.paginator.page_range %}
+          {% if page_obj.number == i %}
+            <li class="page_item active">
+              <span class="page-link">
+                {{ i }}
+              </span>
+            </li>
+          {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
+            <li class="page_item">
+              <a class="page-link" href="?page={{ i }}"> {{ i }}</a>
+            </li>
+          {% else %}
+              <a></a>
+          {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next and page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+          <li class="page_item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}"> next </a>
+          </li>
+          <li class="page_item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"> last </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
+
+
+{% endblock %}
